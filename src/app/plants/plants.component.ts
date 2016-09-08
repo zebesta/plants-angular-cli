@@ -25,7 +25,6 @@ export class PlantsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log("Calling on init in the plants component");
     this.getPlants();
   }
 
@@ -34,15 +33,10 @@ export class PlantsComponent implements OnInit {
   }
 
   getPlants() {
-    console.log('calling get plants from plants component');
-    // this.plants = PLANTS;
-
     this.plantService.getPlants()
       .then(
         plants => this.plants = plants,
         error => this.errorMessage = <any>error);
-
-    // this.plants = this.plantService.getPlants();
   }
 
   addPlant():void{
