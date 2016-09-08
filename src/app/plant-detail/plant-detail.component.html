@@ -1,11 +1,24 @@
-<p>
-  plant-detail works!
-</p>
-<div *ngIf="plant">
-      <h2>{{plant.name}} details!</h2>
-      <div><label>id: </label>{{plant.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="plant.name" placeholder="name"/>
-      </div>
-    </div>
+Plant details component!!!!!
+<div class *ngIf="plant">
+  <h2 class = "plant-details-header">{{plant.name}} details!</h2>
+  <!-- <div><label>id: </label>{{plant._id}}</div> -->
+  <div>
+  <label class="name-label">Name:</label>
+  <input [(ngModel)]="plant.name" placeholder="name">
+  </div>
+  <div>
+  <label class="color-label">Color:</label>
+  <input [(ngModel)]="plant.color" placeholder="color">
+  </div>
+  <div>
+  <!-- <label>type: </label>
+  <input [(ngModel)]="plant.type" placeholder="type"> -->
+  <label class="type-label">Type:</label>
+  <select [(ngModel)]="plant.type" placeholder="herb">
+            <option value=""></option>
+            <option *ngFor="let t of types" [value]="t">{{t}}</option>
+        </select>
+  </div>
+  <button (click)="save()">Save</button>
+  <button (click)="goBack()">Back</button>
+  </div>

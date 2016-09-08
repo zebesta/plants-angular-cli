@@ -44,28 +44,28 @@ export class PlantsComponent implements OnInit {
 
   addPlant():void{
     console.log('add plant');
-    // this.addingPlant = true;
-    // this.selectedPlant = null;
+    this.addingPlant = true;
+    this.selectedPlant = null;
   }
   close(savedPlant: Plant): void {
     console.log("Close function from the plants component");
-    // this.addingPlant = false;
-    // if (savedPlant) { this.getPlants(); }
+    this.addingPlant = false;
+    if (savedPlant) { this.getPlants(); }
   }
   deletePlant(plant: Plant, event: any){
     console.log("deleting plant "+ plant.name + " with id: "+plant._id);
-    // event.stopPropagation();
-    // this.plantService
-    //   .delete(plant)
-    //   .then(res=>{
-    //     this.plants = this.plants.filter(p => p!==plant);
-    //     if(this.selectedPlant === plant){
-    //       this.selectedPlant = null;
-    //     }
-    //   })
-    //   .catch(error => {
-    //     this.errorMessage = error;
-    //   });
+    event.stopPropagation();
+    this.plantService
+      .delete(plant)
+      .then(res=>{
+        this.plants = this.plants.filter(p => p!==plant);
+        if(this.selectedPlant === plant){
+          this.selectedPlant = null;
+        }
+      })
+      .catch(error => {
+        this.errorMessage = error;
+      });
   }
   goToDetail(){
     console.log("go to detail");
