@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Plant } from '../plant';
 import { PlantDetailComponent } from '../plant-detail/plant-detail.component';
 import { PlantService } from '../plant.service';
@@ -18,7 +20,8 @@ export class PlantsComponent implements OnInit {
   addingPlant: boolean;
 
   constructor(
-    private plantService: PlantService
+    private plantService: PlantService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -69,8 +72,8 @@ export class PlantsComponent implements OnInit {
   }
   goToDetail(){
     console.log("go to detail");
-    // let link = ['detail', this.selectedPlant._id];
-    // this.router.navigate(link);
+    let link = ['detail', this.selectedPlant._id];
+    this.router.navigate(link);
   }
   goToType(plant: Plant){
     //Need to either reload a new pahe with this filter or filter the existing results here

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-// import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { Plant } from '../plant';
 import { PlantService } from '../plant.service';
@@ -13,8 +13,8 @@ import { PlantService } from '../plant.service';
 export class PlantDetailComponent implements OnInit {
   types: String[] = ['herb', 'vegetable', 'fruit','flower'];
   constructor(
-    private plantService: PlantService
-    // private route: ActivatedRoute
+    private plantService: PlantService,
+    private route: ActivatedRoute
   ){}
   @Input()
   plant: Plant;
@@ -25,19 +25,17 @@ export class PlantDetailComponent implements OnInit {
   navigated = false;
 
   ngOnInit(): void{
-    // this.route.params.forEach((params: Params)=>{
-    //   if(params['_id']!==undefined){
-    //     let _id = params['_id'];
-    //     this.navigated = true;
-    //     this.plantService.getPlant(_id)
-    //       .then(plant => this.plant = plant);
-    //   }else{
-
+    this.route.params.forEach((params: Params)=>{
+      if(params['_id']!==undefined){
+        let _id = params['_id'];
+        this.navigated = true;
+        this.plantService.getPlant(_id)
+          .then(plant => this.plant = plant);
+      }else{
         this.navigated = false;
         this.plant = new Plant();
-
-    //   }
-    // });
+      }
+    });
   }
 
   save(): void {
