@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Plant } from './plant';
-// import { Headers, Http, Response, RequestOptions } from '@angular/http';
+import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 
@@ -8,33 +8,33 @@ import 'rxjs/add/operator/toPromise';
 export class PlantService {
   plants: Plant[] = [];
   private plantsUrl = 'http://localhost:8080/api/plants'
-  // private extractData(res: Response){
-  //   let body = res.json();
-  //   // return body.data || { };
-  //   return body;
-  // }
-  // private handleError (error: any) {
-  //   console.log("Error!!! " + error);
-  //   // In a real world app, we might use a remote logging infrastructure
-  //   // We'd also dig deeper into the error to get a better message
-  //   let errMsg = (error.message) ? error.message :
-  //     error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-  //   console.error(errMsg); // log to console instead
-  //   return Promise.reject(errMsg);
-  // }
+  private extractData(res: Response){
+    let body = res.json();
+    // return body.data || { };
+    return body;
+  }
+  private handleError (error: any) {
+    console.log("Error!!! " + error);
+    // In a real world app, we might use a remote logging infrastructure
+    // We'd also dig deeper into the error to get a better message
+    let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error(errMsg); // log to console instead
+    return Promise.reject(errMsg);
+  }
 
 
   constructor (
-    // private http: Http
+    private http: Http
   ){};
 
  getPlants(): Promise<Plant[]> {
-  return Promise.resolve(PLANTS);
+  // return Promise.resolve(PLANTS);
 
-  // return this.http.get(this.plantsUrl)
-  //             .toPromise()
-  //             .then(this.extractData)
-  //             .catch(this.handleError);
+  return this.http.get(this.plantsUrl)
+              .toPromise()
+              .then(this.extractData)
+              .catch(this.handleError);
 }
 
 }
