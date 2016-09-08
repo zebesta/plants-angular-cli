@@ -12,5 +12,5 @@ import { PlantService } from './plant.service';
   providers: [PlantService]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Plants app using Angular 2 CLI!';
 }
