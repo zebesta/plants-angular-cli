@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-plant-detail',
+  selector: 'my-plant-detail',
   templateUrl: 'plant-detail.component.html',
   styleUrls: ['plant-detail.component.css']
 })
