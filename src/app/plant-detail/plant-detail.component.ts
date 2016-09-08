@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Plant } from '../plant';
 
 @Component({
   moduleId: module.id,
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['plant-detail.component.css']
 })
 export class PlantDetailComponent implements OnInit {
+  @Input()
+  plant: Plant;
 
   constructor() { }
 

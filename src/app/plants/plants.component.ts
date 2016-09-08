@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Plant } from '../plant';
 import { PlantDetailComponent } from '../plant-detail/plant-detail.component';
+import { PlantService } from '../plant.service';
 
 @Component({
   moduleId: module.id,
   directives: [PlantDetailComponent],
   selector: 'app-plants',
   templateUrl: 'plants.component.html',
-  styleUrls: ['plants.component.css']
+  styleUrls: ['plants.component.css'],
+  providers: [PlantService]
 })
 export class PlantsComponent implements OnInit {
   plants: Plant[];
@@ -15,9 +17,12 @@ export class PlantsComponent implements OnInit {
   errorMessage: any;
   addingPlant: boolean;
 
-  constructor() { }
+  constructor(
+    private plantService: PlantService
+  ) { }
 
   ngOnInit() {
+    console.log("Calling on init in the plants component");
     this.getPlants();
   }
 
@@ -26,11 +31,15 @@ export class PlantsComponent implements OnInit {
   }
 
   getPlants() {
-    this.plants = PLANTS;
-    // this.plantService.getPlants()
-    //   .then(
-    //     plants => this.plants = plants,
-    //     error => this.errorMessage = <any>error);
+    console.log('calling get plants from plants component');
+    // this.plants = PLANTS;
+
+    this.plantService.getPlants()
+      .then(
+        plants => this.plants = plants,
+        error => this.errorMessage = <any>error);
+
+    // this.plants = this.plantService.getPlants();
   }
 
   addPlant():void{

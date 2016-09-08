@@ -17,7 +17,7 @@
 <br>
 
 <div *ngIf="addingPlant">
-  <my-plant-detail (close)="close($event)"></my-plant-detail>
+  <my-plant-detail [plant]="selectedPlant" (close)="close($event)"></my-plant-detail>
 </div>
 <br>
 

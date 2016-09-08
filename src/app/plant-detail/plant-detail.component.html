@@ -1,3 +1,11 @@
 <p>
   plant-detail works!
 </p>
+<div *ngIf="plant">
+      <h2>{{plant.name}} details!</h2>
+      <div><label>id: </label>{{plant.id}}</div>
+      <div>
+        <label>name: </label>
+        <input [(ngModel)]="plant.name" placeholder="name"/>
+      </div>
+    </div>
