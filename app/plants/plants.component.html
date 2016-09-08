@@ -1,6 +1,3 @@
-<p>
-  plants works!
-</p>
 <h2>My Plants!</h2>
 <ul class="plants">
 <li *ngFor="let plant of plants"
@@ -12,9 +9,6 @@
 </ul>
 <div class="error" *ngIf="error">{{error}}</div>
 <button (click)="addPlant()">Add New Plant</button>
-<br>
-<my-plant-detail></my-plant-detail>
-<br>
 
 <div *ngIf="addingPlant">
   <my-plant-detail (close)="close($event)"></my-plant-detail>
