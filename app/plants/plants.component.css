@@ -1,0 +1,71 @@
+.selected {
+  background-color: #C9F2C7 !important;
+  color: white;
+}
+.plants {
+  text-align: center;
+margin: 0 0 2em 0;
+list-style-type: none;
+padding: 0;
+width: 25em;
+}
+.plants li {
+ cursor: pointer;
+ position: relative;
+ left: 0;
+ background-color: #EEE;
+ margin: .5em;
+ padding: .3em 0;
+ height: 1.6em;
+ border-radius: 4px;
+ }
+ .plants li.selected:hover {
+   background-color: #BBD8DC !important;
+   /*background-color: #00FF00 !important;*/
+   color: white;
+ }
+ .plants li:hover {
+   color: #607D8B;
+   background-color: #DDD;
+   left: .1em;
+ }
+ .plants .text {
+   position: relative;
+   top: -3px;
+ }
+
+.plants .badge {
+  float:left;
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: blue;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  width: 8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+/*Custom badge colors based on the type of object*/
+ .fruit {
+   background-color: red !important;
+ }
+ .vegetable{
+   background-color: green !important;
+ }
+ .herb{
+   background-color: darkolivegreen !important;
+ }
+ .flower{
+   background-color: violet !important;
+ }
+ .error {color:red;}
+button.delete-button{
+  float:right;
+  background-color: gray !important;
+  color:white;
+}

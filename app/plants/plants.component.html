@@ -1,0 +1,29 @@
+<p>
+  plants works!
+</p>
+<h2>My Plants!</h2>
+<ul class="plants">
+<li *ngFor="let plant of plants"
+  [class.selected]="plant === selectedPlant"
+  (click)="onSelect(plant)">
+  <span class="badge {{plant.type}}" (click)="goToType(plant)">{{plant.type}}</span>{{plant.name}}
+  <button class="delete-button" (click)="deletePlant(plant, $event)">Delete</button>
+</li>
+</ul>
+<div class="error" *ngIf="error">{{error}}</div>
+<button (click)="addPlant()">Add New Plant</button>
+<br>
+<my-plant-detail></my-plant-detail>
+<br>
+
+<div *ngIf="addingPlant">
+  <my-plant-detail (close)="close($event)"></my-plant-detail>
+</div>
+<br>
+
+<div *ngIf="selectedPlant">
+  <h2>
+    {{selectedPlant.name}} is a {{selectedPlant.type}}
+  </h2>
+  <button (click)="goToDetail()">View Details</button>
+</div>
