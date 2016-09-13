@@ -1,4 +1,5 @@
 <h2>My Plants!</h2>
+<button (click)="goToAllAgain()">Show All Plants</button>
 <ul class="plants">
 <li *ngFor="let plant of plants"
   [class.selected]="plant === selectedPlant"

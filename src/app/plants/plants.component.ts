@@ -14,7 +14,12 @@ import { PlantService } from '../plant.service';
   providers: [PlantService]
 })
 export class PlantsComponent implements OnInit {
+  allPlants: Plant[];
   plants: Plant[];
+  herbs: Plant[];
+  vegetables: Plant[];
+  fruits: Plant[];
+  flowers: Plant[];
   selectedPlant: Plant;
   errorMessage: any;
   addingPlant: boolean;
@@ -35,8 +40,16 @@ export class PlantsComponent implements OnInit {
   getPlants() {
     this.plantService.getPlants()
       .then(
-        plants => this.plants = plants,
+        plants => {
+          this.plants = plants;
+          this.allPlants = this.plants;
+        },
         error => this.errorMessage = <any>error);
+    this.allPlants = this.plants;
+    // this.herbs = this.plants.filter(p => p.type=='herb');
+    // this.vegetables = this.plants.filter(p => p.type=='vegetable');
+    // this.fruits = this.plants.filter(p => p.type=='plant');
+    // this.flowers = this.plants.filter(p => p.type=='flower');
   }
 
   addPlant():void{
@@ -72,6 +85,16 @@ export class PlantsComponent implements OnInit {
   goToType(plant: Plant){
     //Need to either reload a new pahe with this filter or filter the existing results here
     console.log("Attempting to go to type!" + plant.type);
+    event.stopPropagation();
+    this.plants = this.plants.filter(p => p.type==plant.type);
+  }
+  // goToType(){
+  //   console.log("Attempting to go to type!");
+  //   event.stopPropagation();
+  //   this.plants = this.plants.filter(p => p.type=='vegetable');
+  // }
+  goToAllAgain(){
+    this.plants = this.allPlants;
   }
 
 }
