@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class PlantService {
   plants: Plant[] = [];
-  private plantsUrl = 'http://nameless-cliffs-62966.herokuapp.com/api/plants'
+  private plantsUrl = 'http://localhost:8080/api/plants'
   private extractData(res: Response){
     let body = res.json();
     // return body.data || { };

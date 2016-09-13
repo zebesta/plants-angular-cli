@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Plant } from '../plant';
+import { PlantDetailComponent } from '../plant-detail/plant-detail.component';
+import { PlantService } from '../plant.service';
 
 @Component({
   moduleId: module.id,
@@ -8,9 +13,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private plantService: PlantService,
+    private router: Router
+  ){}
 
-  ngOnInit() {
+  plants: Plant[] = [];
+
+  ngOnInit(){
+    this.plantService.getPlants().then(plants => this.plants = plants.slice(1,5));
+  }
+
+  goToDetail(plant: Plant){
+    let link = ['detail', plant._id];
+    this.router.navigate(link);
   }
 
 }
