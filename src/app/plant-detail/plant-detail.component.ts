@@ -12,6 +12,8 @@ import { PlantService } from '../plant.service';
 })
 export class PlantDetailComponent implements OnInit {
   types: String[] = ['herb', 'vegetable', 'fruit','flower'];
+  imageurl = "http://feelgrafix.com/data_images/out/27/956607-tomato.jpg";
+
   constructor(
     private plantService: PlantService,
     private route: ActivatedRoute
