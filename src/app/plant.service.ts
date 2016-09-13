@@ -47,8 +47,8 @@ getPlant(_id: string){
       .then(plants => plants.find(plant => plant._id === _id));
   }
 
-  addPlant(name: string, type: string, color: string): Promise<Plant> {
-    let body = JSON.stringify({ name, type, color });
+  addPlant(name: string, type: string, color: string, imageurl: string): Promise<Plant> {
+    let body = JSON.stringify({ name, type, color, imageurl });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.plantsUrl, body, options)
@@ -107,13 +107,13 @@ getPlant(_id: string){
 }
 
 const PLANTS: Plant[] = [
-  {"_id":"57a8b0313200c113b0000003","type":"fruit","color":"red","name":"tomato","__v":0},
-  {"_id":"57c06fb88fea828123000002","type":"flower","color":"yellow","name":"sunflower","__v":0},
-  {"_id":"57c06fbb8fea828123000003","__v":0,"color":"orange","name":"papaya","type":"fruit"},
-  {"_id":"57c071be104356a023000001","type":"vegetable","color":"yellow","name":"bell pepper","__v":0},
-  {"_id":"57c07274104356a023000002","type":"vegetable","color":"green","name":"cucumber","__v":0},
-  {"_id":"57c07339104356a023000003","type":"herb","color":"green","name":"mint","__v":0},
-  {"_id":"57c4555d7442fc4005000001","type":"fruit","color":"green","name":"watermelon","__v":0},
-  {"_id":"57c45d737442fc4005000002","type":"vegetable","color":"green","name":"Arugala","__v":0},
-  {"_id":"57c46a1898cc969809000001","type":"vegetable","color":"orange","name":"pumpkin","__v":0}
+  {"_id":"57a8b0313200c113b0000003","type":"fruit","color":"red","name":"tomato","imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg","__v":0},
+  {"_id":"57c06fb88fea828123000002","type":"flower","color":"yellow","name":"sunflower","imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg","__v":0},
+  {"_id":"57c06fbb8fea828123000003","__v":0,"color":"orange","name":"papaya","type":"fruit","imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg"},
+  {"_id":"57c071be104356a023000001","type":"vegetable","color":"yellow","name":"bell pepper","__v":0,"imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg"},
+  {"_id":"57c07274104356a023000002","type":"vegetable","color":"green","name":"cucumber","__v":0,"imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg"},
+  {"_id":"57c07339104356a023000003","type":"herb","color":"green","name":"mint","__v":0,"imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg"},
+  {"_id":"57c4555d7442fc4005000001","type":"fruit","color":"green","name":"watermelon","__v":0,"imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg"},
+  {"_id":"57c45d737442fc4005000002","type":"vegetable","color":"green","name":"Arugala","__v":0,"imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg"},
+  {"_id":"57c46a1898cc969809000001","type":"vegetable","color":"orange","name":"pumpkin","__v":0,"imageurl":"http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg"}
 ]

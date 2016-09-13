@@ -19,8 +19,13 @@ Plant details component!!!!!
             <option *ngFor="let t of types" [value]="t">{{t}}</option>
         </select>
   </div>
-  <img src="/images/{{plant.name}}.jpg" alt="picture" />
-  <img src="{{imageurl}}" alt="picture" />
+  <div>
+  <label class="imageurl-label">Image Url:</label>
+  <input [(ngModel)]="plant.imageurl" placeholder="image url">
+  </div>
+  <!-- <img src="/images/{{plant.name}}.jpg" alt="picture" /> -->
+  <img src="{{plant.imageurl}}" alt="picture" />
+  <br>
   <button (click)="save()">Save</button>
   <button (click)="goBack()">Back</button>
   </div>

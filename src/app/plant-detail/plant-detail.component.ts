@@ -12,7 +12,7 @@ import { PlantService } from '../plant.service';
 })
 export class PlantDetailComponent implements OnInit {
   types: String[] = ['herb', 'vegetable', 'fruit','flower'];
-  imageurl = "http://feelgrafix.com/data_images/out/27/956607-tomato.jpg";
+  // imageurl = "http://s3.evcdn.com/images/block/I0-001/031/862/186-2.jpeg_/free-garden-talk-fall-vegetable-gardening-86.jpeg";
 
   constructor(
     private plantService: PlantService,

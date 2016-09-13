@@ -3,5 +3,6 @@ export class Plant {
   type: string;
   color: string;
   name: string;
+  imageurl: string;
   __v: number;
 }
