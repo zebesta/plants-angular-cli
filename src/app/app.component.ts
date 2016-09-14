@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-import { PlantsComponent } from './plants/plants.component';
-import { TestComponent } from './test/test.component';
 import { PlantService } from './plant.service';
 import { PlantSearchService } from './plant-search.service';
-import { PlantSearchComponent } from './plant-search/plant-search.component';
 
 @Component({
   moduleId: module.id,
-  directives: [ROUTER_DIRECTIVES, TestComponent, PlantsComponent, PlantSearchComponent],
+  directives: [ROUTER_DIRECTIVES],
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],

@@ -3,6 +3,7 @@ import {provideRouter, RouterConfig} from '@angular/router';
 import { PlantsComponent } from './plants/plants.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PlantDetailComponent } from './plant-detail/plant-detail.component';
+import { PlantSearchComponent } from './plant-search/plant-search.component';
 
 const appRoutes: RouterConfig = [
   {
@@ -22,6 +23,10 @@ const appRoutes: RouterConfig = [
   {
     path: 'detail/:_id',
     component: PlantDetailComponent
+  },
+  {
+    path: 'search',
+    component: PlantSearchComponent
   }
 ];
 
