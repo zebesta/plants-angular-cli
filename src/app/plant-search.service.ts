@@ -13,7 +13,7 @@ export class PlantSearchService {
   search(term: string): Observable<Plant[]> {
     console.log("trying to search in plant search service with: " +term);
     return this.http
-               .get(`http://localhost:8080/api/plants/?name=${term}`)
+               .get(`http://localhost:8080/api/plants?name=${term}`)
                .map((r: Response) => r.json() as Plant[]);
   }
 
