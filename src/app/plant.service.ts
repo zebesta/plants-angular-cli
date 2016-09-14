@@ -40,9 +40,9 @@ export class PlantService {
               .toPromise()
               .then(this.extractData)
               .catch(this.handleError);
-}
+  }
 
-getPlant(_id: string){
+  getPlant(_id: string){
     return this.getPlants()
       .then(plants => plants.find(plant => plant._id === _id));
   }
@@ -56,6 +56,13 @@ getPlant(_id: string){
                .then(this.extractData)
                .catch(this.handleError);
   }
+  // create(name: string): Promise<Plant> {
+  //   return this.http
+  //     .post(this.plantsUrl, JSON.stringify({name: name}), {headers: this.headers})
+  //     .toPromise()
+  //     .then(res => res.json().data)
+  //     .catch(this.handleError);
+  // }
   delete(plant: Plant): Promise<Response> {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

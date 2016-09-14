@@ -37,6 +37,7 @@ export class PlantSearchComponent implements OnInit {
 
   // Push a search term into the observable stream.
   search(term: string): void {
+    console.log('searching from the plant-search component with term ' + term);
     this.searchTerms.next(term);
   }
 
@@ -47,14 +48,22 @@ export class PlantSearchComponent implements OnInit {
       //return search service results or an empty array if there are none
       .switchMap(term => term ? this.plantSearchService.search(term) : Observable.of<Plant[]>([]))
       .catch(error =>{
+        console.log("an error was encountered");
         console.log(error);
         return Observable.of<Plant[]>([]); //return empty array on error
       });
   }
 
-  goToDetail(plant: Plant): void {
+  gotoDetail(plant: Plant): void {
     let link = ['/detail', plant._id];
     this.router.navigate(link);
+  }
+
+  whateverPrint(): void{
+    console.log("printing search terms");
+    console.log(this.searchTerms);
+    console.log("printing plants observable");
+    console.log(this.plants);
   }
 
 }

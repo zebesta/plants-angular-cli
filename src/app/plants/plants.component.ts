@@ -57,6 +57,20 @@ export class PlantsComponent implements OnInit {
     this.addingPlant = true;
     this.selectedPlant = null;
   }
+
+//=== The add example from the tour of heroes example, should provide an actual update to the plants list==
+//   add(name: string, type: string, color: string, imageurl: string): void {
+//   name = name.trim();
+//   type = "vegetable";
+//   color = "blue";
+//   imageurl = "google.com";
+//   if (!name) { return; }
+//   this.plantService.addPlant(name, type, color, imageurl)
+//     .then(plant => {
+//       this.plants.push(plant);
+//       this.selectedPlant = null;
+//     });
+// }
   close(savedPlant: Plant): void {
     console.log("Close function from the plants component");
     this.addingPlant = false;

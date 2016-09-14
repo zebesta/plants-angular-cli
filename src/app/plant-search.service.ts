@@ -11,10 +11,10 @@ export class PlantSearchService {
   constructor(private http: Http) { }
 
   search(term: string): Observable<Plant[]> {
-    console.log("trying to search in plant search service");
+    console.log("trying to search in plant search service with: " +term);
     return this.http
-               .get(this.plantsUrl)
-               .map((r: Response) => r.json().data as Plant[]);
+               .get(`http://localhost:8080/api/plants/?name=${term}`)
+               .map((r: Response) => r.json() as Plant[]);
   }
 
 }
