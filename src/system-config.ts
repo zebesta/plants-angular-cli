@@ -40,6 +40,7 @@ const barrels: string[] = [
   'app/plants',
   'app/dashboard',
   'app/test',
+  'app/plant-search',
   /** @cli-barrel */
 ];
 

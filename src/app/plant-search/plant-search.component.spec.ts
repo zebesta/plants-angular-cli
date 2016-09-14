@@ -1,12 +1,13 @@
+/* tslint:disable:no-unused-variable */
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { addProviders, async, inject } from '@angular/core/testing';
-import { DashboardComponent } from './dashboard.component';
+import { PlantSearchComponent } from './plant-search.component';
 
-describe('Component: Dashboard', () => {
+describe('Component: PlantSearch', () => {
   // it('should create an instance', () => {
-  //   let component = new DashboardComponent();
+  //   let component = new PlantSearchComponent();
   //   expect(component).toBeTruthy();
   // });
 });

@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 import { Plant } from '../plant';
 import { PlantDetailComponent } from '../plant-detail/plant-detail.component';
 import { PlantService } from '../plant.service';
+import { PlantSearchComponent } from '../plant-search/plant-search.component';
 
 @Component({
   moduleId: module.id,
+  directives: [PlantSearchComponent],
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css']
