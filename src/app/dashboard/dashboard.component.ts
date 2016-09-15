@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 import { Plant } from '../plant';
 import { PlantDetailComponent } from '../plant-detail/plant-detail.component';
 import { PlantService } from '../plant.service';
+import { PlantSearchComponent } from '../plant-search/plant-search.component';
 
 @Component({
   moduleId: module.id,
   selector: 'app-dashboard',
+  directives: [PlantSearchComponent],
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css']
 })
@@ -21,7 +23,7 @@ export class DashboardComponent implements OnInit {
   plants: Plant[] = [];
 
   ngOnInit(){
-    this.plantService.getPlants().then(plants => this.plants = plants.slice(1,5));
+    this.plantService.getPlants().then(plants => this.plants = plants.slice(0,4));
   }
 
   goToDetail(plant: Plant){

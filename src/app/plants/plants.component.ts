@@ -21,8 +21,13 @@ export class PlantsComponent implements OnInit {
   fruits: Plant[];
   flowers: Plant[];
   selectedPlant: Plant;
+  addNewPlant: boolean = false;
+  plantToAdd: Plant = new Plant();
   errorMessage: any;
   addingPlant: boolean;
+  types: string[] = ['vegetable', 'fruit', 'herb', 'flower'];
+  t: string;
+  error: any;
 
   constructor(
     private plantService: PlantService,
@@ -33,8 +38,25 @@ export class PlantsComponent implements OnInit {
     this.getPlants();
   }
 
+  get diagnostic() { return JSON.stringify(this.plantToAdd); }
+
   onSelect(plant: Plant){
     this.selectedPlant = plant;
+  }
+  toggleAddNewPlant(){
+    this.addNewPlant = true;
+  }
+  save(): void {
+    console.log("Trying to save plant " + this.plantToAdd.name);
+    this.addNewPlant = false;
+    this.plantService
+      .save(this.plantToAdd)
+      .then(plantToAdd=>{
+        this.plantToAdd = new Plant(); //saved plant with ID if new
+        this.getPlants();
+        // this.goBack(plant);
+      })
+      .catch(error => this.error = error); //TODO display error message here
   }
 
   getPlants() {
@@ -59,18 +81,18 @@ export class PlantsComponent implements OnInit {
   }
 
 //=== The add example from the tour of heroes example, should provide an actual update to the plants list==
-//   add(name: string, type: string, color: string, imageurl: string): void {
-//   name = name.trim();
-//   type = "vegetable";
-//   color = "blue";
-//   imageurl = "google.com";
-//   if (!name) { return; }
-//   this.plantService.addPlant(name, type, color, imageurl)
-//     .then(plant => {
-//       this.plants.push(plant);
-//       this.selectedPlant = null;
-//     });
-// }
+  add(name: string, type: string, color: string, imageurl: string): void {
+  name = name.trim();
+  type = "vegetable";
+  color = "blue";
+  imageurl = "google.com";
+  if (!name) { return; }
+  this.plantService.addPlant(name, type, color, imageurl)
+    .then(plant => {
+      this.plants.push(plant);
+      this.selectedPlant = null;
+    });
+}
   close(savedPlant: Plant): void {
     console.log("Close function from the plants component");
     this.addingPlant = false;
@@ -96,11 +118,19 @@ export class PlantsComponent implements OnInit {
     let link = ['detail', this.selectedPlant._id];
     this.router.navigate(link);
   }
-  goToType(plant: Plant){
+  goToType(type: string){
     //Need to either reload a new pahe with this filter or filter the existing results here
-    console.log("Attempting to go to type!" + plant.type);
+    console.log("Attempting to go to type!" + type);
     event.stopPropagation();
-    this.plants = this.plants.filter(p => p.type==plant.type);
+    // this.plants = this.plants.filter(p => p.type==plant.type);
+
+    //using the actual API end point:
+    this.plantService.getType(type)
+      .then(
+        plants => {
+          this.plants = plants;
+        },
+        error => this.errorMessage = <any>error);
   }
   // goToType(){
   //   console.log("Attempting to go to type!");

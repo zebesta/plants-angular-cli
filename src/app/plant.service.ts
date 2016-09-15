@@ -41,6 +41,12 @@ export class PlantService {
               .then(this.extractData)
               .catch(this.handleError);
   }
+  getType(type: string): Promise<Plant[]>{
+    return this.http.get(this.plantsUrl + '/types/' + type)
+                .toPromise()
+                .then(this.extractData)
+                .catch(this.handleError);
+  }
 
   getPlant(_id: string){
     return this.getPlants()
