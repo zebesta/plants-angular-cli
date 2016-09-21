@@ -33,5 +33,10 @@ export class PlantDetailArrayComponent implements OnInit {
         },
         error => this.errorMessage = <any>error);
   }
+  goToDetail(plant: Plant): void {
+    console.log("Trying to go to detail for: " +plant.name);
+    let link = ['/detail', plant._id];
+    this.router.navigate(link);
+  }
 
 }
