@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let plant of plants">
+    <app-plant-child
+    class="plant-card"
+    [plant]="plant"
+    (click)="goToDetail(plant)"></app-plant-child>
+  </li>
+</ul>

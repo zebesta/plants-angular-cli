@@ -32,6 +32,11 @@ var barrels = [
     'app/plants',
     'app/dashboard',
     'app/test',
+    'app/plant-search',
+    'app/chrisroth',
+    'app/plant-array',
+    'app/plant-child',
+    'app/plant-detail-array',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {
