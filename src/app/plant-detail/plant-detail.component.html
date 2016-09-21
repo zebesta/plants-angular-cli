@@ -13,18 +13,18 @@ Plant details component!!!!!
   <div>
   <!-- <label>type: </label>
   <input [(ngModel)]="plant.type" placeholder="type"> -->
-  <label class="type-label">Type:</label>
-  <select [(ngModel)]="plant.type" placeholder="herb">
-            <option value=""></option>
-            <option *ngFor="let t of types" [value]="t">{{t}}</option>
-        </select>
+    <label class="type-label">Type:</label>
+    <select [(ngModel)]="plant.type" placeholder="herb">
+        <option value=""></option>
+        <option *ngFor="let t of types" [value]="t">{{t}}</option>
+    </select>
   </div>
   <div>
   <label class="imageurl-label">Image Url:</label>
   <input [(ngModel)]="plant.imageurl" placeholder="image url">
   </div>
   <!-- <img src="/images/{{plant.name}}.jpg" alt="picture" /> -->
-  <img src="{{plant.imageurl}}" alt="picture" />
+  <img src="{{plant.imageurl}}" alt="picture" height="360" width="360"/>
   <br>
   <button (click)="save()">Save</button>
   <button (click)="goBack()">Back</button>

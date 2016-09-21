@@ -41,6 +41,10 @@ const barrels: string[] = [
   'app/dashboard',
   'app/test',
   'app/plant-search',
+  'app/chrisroth',
+  'app/plant-array',
+  'app/plant-child',
+  'app/plant-detail-array',
   /** @cli-barrel */
 ];
 

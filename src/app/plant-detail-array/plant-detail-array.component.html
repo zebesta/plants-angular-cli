@@ -1,0 +1,9 @@
+<p>
+  plant-detail-array works!
+</p>
+<ul>
+  <li *ngFor="let plant of plants">
+    {{plant.name}} calling plant child! :
+    <app-plant-child [plant]="plant"></app-plant-child>
+  </li>
+</ul>

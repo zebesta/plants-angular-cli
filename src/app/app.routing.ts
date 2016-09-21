@@ -4,6 +4,7 @@ import { PlantsComponent } from './plants/plants.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PlantDetailComponent } from './plant-detail/plant-detail.component';
 import { PlantSearchComponent } from './plant-search/plant-search.component';
+import { PlantDetailArrayComponent } from './plant-detail-array/plant-detail-array.component';
 
 const appRoutes: RouterConfig = [
   {
@@ -27,6 +28,10 @@ const appRoutes: RouterConfig = [
   {
     path: 'search',
     component: PlantSearchComponent
+  },
+  {
+    path: 'plantarray',
+    component: PlantDetailArrayComponent
   }
 ];
 
